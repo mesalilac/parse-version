@@ -2,7 +2,7 @@ use std::fmt;
 
 #[derive(Debug, PartialEq)]
 pub enum VersionPart {
-    Num(u64),
+    Num(usize),
     Wildcard,
 }
 
@@ -51,7 +51,7 @@ impl Version {
         let parts = s.split('.').collect::<Vec<&str>>();
 
         for (index, part) in parts.iter().enumerate() {
-            let Ok(num) = part.parse::<u64>() else {
+            let Ok(num) = part.parse::<usize>() else {
                 continue;
             };
 
